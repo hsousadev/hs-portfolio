@@ -15,7 +15,7 @@ export const messages = {
     },
     catalog: {
       kicker: "Projetos",
-      title: "Estudos, pessoais e free-lances",
+      title: "Estudos, pessoais e outros",
       all: "Todos",
       web: "Web",
       design: "Design",
@@ -117,7 +117,7 @@ export const messages = {
     },
     catalog: {
       kicker: "Projects",
-      title: "Studies, personal, and freelance",
+      title: "Studies, personal, and others",
       all: "All",
       web: "Web",
       design: "Design",
