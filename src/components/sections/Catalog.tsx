@@ -8,7 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { cn } from "@/lib/cn";
 
-const filters: Array<ProjectCategory | "all"> = ["all", "web", "design", "video"];
+const filters: Array<ProjectCategory | "all"> = ["all", "web", "design"];
 const PAGE_SIZE = 8;
 
 export function Catalog() {
@@ -38,7 +38,6 @@ export function Catalog() {
     all: t.catalog.all,
     web: t.catalog.web,
     design: t.catalog.design,
-    video: t.catalog.video,
   };
 
   return (

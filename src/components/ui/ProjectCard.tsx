@@ -1,4 +1,4 @@
-import { ArrowUpRight, Play } from "@/components/ui/icons";
+import { ArrowUpRight } from "@/components/ui/icons";
 import { useLocale } from "@/i18n/locale";
 import type { Project } from "@/content/projects";
 import { cn } from "@/lib/cn";
@@ -41,11 +41,6 @@ export function ProjectCard({
           aria-hidden
         />
         <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-bg/55 via-transparent to-transparent opacity-70 transition-opacity duration-500 [@media(hover:hover)]:group-hover:opacity-30" />
-        {project.video && (
-          <span className="absolute right-3 bottom-3 flex size-8 items-center justify-center rounded-full bg-bg/80 text-secondary backdrop-blur-sm">
-            <Play size={14} />
-          </span>
-        )}
       </div>
 
       <div className="flex flex-1 flex-col gap-2.5 p-4">

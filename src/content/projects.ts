@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/messages";
 
-export type ProjectCategory = "web" | "design" | "video";
+export type ProjectCategory = "web" | "design";
 
 export type Project = {
   id: string;
@@ -12,7 +12,6 @@ export type Project = {
   image: string;
   featured?: boolean;
   live?: boolean;
-  video?: boolean;
 };
 
 export const projects: Project[] = [
@@ -58,21 +57,6 @@ export const projects: Project[] = [
     image:
       "https://s3-alpha.figma.com/hub/file/2494220563/03033aaa-f74a-4478-bf73-9f18dae1e4cd-cover.png",
     featured: true,
-  },
-  {
-    id: "visgeo",
-    title: "VisGeo",
-    description: {
-      pt: "Pitch da aplicação de georreferenciamento e extração de dados.",
-      en: "Pitch for a georeferencing and data extraction application.",
-    },
-    tags: ["Pitch", "Produto"],
-    category: "video",
-    href: "https://www.youtube.com/watch?v=hQMvhnpsWpU",
-    image:
-      "https://user-images.githubusercontent.com/56441371/93688444-5704dc80-fa9c-11ea-8bed-fdac35ce7337.png",
-    featured: true,
-    video: true,
   },
   {
     id: "leadster",
@@ -404,48 +388,6 @@ export const projects: Project[] = [
     href: "https://www.figma.com/community/file/1162385628597290713",
     image:
       "https://user-images.githubusercontent.com/54003876/245594812-c3f08d5a-638b-4f53-8877-f18c673a98d9.png",
-  },
-  {
-    id: "uda-brasil",
-    title: "UDA Brasil",
-    description: {
-      pt: "Pitch da aplicação.",
-      en: "Application pitch.",
-    },
-    tags: ["Pitch"],
-    category: "video",
-    href: "https://www.youtube.com/watch?v=vIIeVExmZiM",
-    image:
-      "https://user-images.githubusercontent.com/54003876/84607266-b4c4cf80-ae82-11ea-9104-2166954a5197.png",
-    video: true,
-  },
-  {
-    id: "typext-video",
-    title: "Typext",
-    description: {
-      pt: "Pitch da aplicação de atas digitais.",
-      en: "Pitch for the digital minutes app.",
-    },
-    tags: ["Pitch"],
-    category: "video",
-    href: "https://www.youtube.com/watch?v=65Go1Nz3KBA",
-    image:
-      "https://user-images.githubusercontent.com/56441371/112768034-52dbed80-8ff0-11eb-8a72-5190c56f1090.png",
-    video: true,
-  },
-  {
-    id: "onecar-video",
-    title: "OneCar",
-    description: {
-      pt: "Pitch do app de anúncios de carros.",
-      en: "Pitch for the car listings app.",
-    },
-    tags: ["Pitch"],
-    category: "video",
-    href: "https://www.youtube.com/watch?v=LraPykzShIA",
-    image:
-      "https://user-images.githubusercontent.com/56441318/133950991-44ac40d3-c041-4c7a-b35b-bbf84abc9c37.png",
-    video: true,
   },
 ];
 

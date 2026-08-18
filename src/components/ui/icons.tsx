@@ -38,14 +38,6 @@ export function MessageCircle(props: IconProps) {
   );
 }
 
-export function Play(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <path d="M8 5v14l11-7z" fill="currentColor" stroke="none" />
-    </Icon>
-  );
-}
-
 export function Check(props: IconProps) {
   return (
     <Icon {...props}>
