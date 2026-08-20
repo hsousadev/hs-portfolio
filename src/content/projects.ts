@@ -1,3 +1,6 @@
+import nanoticiaBanner from "@/assets/nanoticia-banner.png";
+import aloBanner from "@/assets/alo-banner.png";
+import rickAndMortyBanner from "@/assets/rick-and-morty-banner.png";
 import type { Locale } from "@/i18n/messages";
 
 export type ProjectCategory = "web" | "design";
@@ -25,8 +28,50 @@ export const projects: Project[] = [
     tags: ["Next.js", "React", "TypeScript"],
     category: "web",
     href: "https://nanoticia.vercel.app/",
+    image: nanoticiaBanner,
+    featured: true,
+    live: true,
+  },
+  {
+    id: "radio",
+    title: "Alô - Quem está no ar?",
+    description: {
+      pt: "App de rádio ao vivo no estilo Spotify. Descubra quem está no ar e sintonize milhares de estações do mundo.",
+      en: "A Spotify-style live radio app. Find who's on air and tune into thousands of stations worldwide.",
+    },
+    tags: ["Next.js", "TypeScript"],
+    category: "web",
+    href: "https://radio-browser-web.vercel.app/",
+    image: aloBanner,
+    featured: true,
+    live: true,
+  },
+  {
+    id: "rick-morty",
+    title: "Rick and Morty Wiki",
+    description: {
+      pt: "Site com personagens, episódios e mais informações da série.",
+      en: "A site with characters, episodes, and more from the series.",
+    },
+    tags: ["Next.js", "React", "TypeScript"],
+    category: "web",
+    href: "https://rickandmortysite.vercel.app/",
+    image: rickAndMortyBanner,
+    featured: true,
+    live: true,
+  },
+  {
+    id: "met-museum",
+    title: "Metropolitan Museum",
+    description: {
+      pt: "Site para encontrar obras de arte e artistas de diferentes períodos.",
+      en: "A site to explore artworks and artists across periods.",
+    },
+    tags: ["Next.js", "TypeScript"],
+    category: "web",
+    href: "https://metropolitan-museum-of-art-web.vercel.app/",
     image:
-      "https://user-images.githubusercontent.com/54003876/234693350-e9c7e550-f78b-484e-b67e-b92b02ff5d85.png",
+      "https://user-images.githubusercontent.com/54003876/247148740-874ef4ae-ea39-402b-bff8-0c863b96084a.png",
     featured: true,
     live: true,
   },
@@ -71,48 +116,6 @@ export const projects: Project[] = [
     image:
       "https://user-images.githubusercontent.com/54003876/248530834-11d0e8a8-4a6b-49d7-a26c-1f852be8a5f5.png",
     featured: true,
-    live: true,
-  },
-  {
-    id: "rick-morty",
-    title: "Rick and Morty Wiki",
-    description: {
-      pt: "Site com personagens, episódios e mais informações da série.",
-      en: "A site with characters, episodes, and more from the series.",
-    },
-    tags: ["Next.js", "React", "TypeScript"],
-    category: "web",
-    href: "https://rickandmortysite.vercel.app/",
-    image:
-      "https://user-images.githubusercontent.com/54003876/245583973-6981008c-0103-4e96-9f81-d02ca218ddb1.png",
-    live: true,
-  },
-  {
-    id: "met-museum",
-    title: "Metropolitan Museum of Art",
-    description: {
-      pt: "Site para encontrar obras de arte e artistas de diferentes períodos.",
-      en: "A site to explore artworks and artists across periods.",
-    },
-    tags: ["Next.js", "TypeScript"],
-    category: "web",
-    href: "https://metropolitan-museum-of-art-web.vercel.app/",
-    image:
-      "https://user-images.githubusercontent.com/54003876/247148740-874ef4ae-ea39-402b-bff8-0c863b96084a.png",
-    live: true,
-  },
-  {
-    id: "radio",
-    title: "Radio Web Browser",
-    description: {
-      pt: "Rádio no navegador com milhares de estações do mundo.",
-      en: "In-browser radio with thousands of stations worldwide.",
-    },
-    tags: ["Next.js", "TypeScript"],
-    category: "web",
-    href: "https://radio-browser-web.vercel.app/",
-    image:
-      "https://user-images.githubusercontent.com/54003876/248300629-1fb0fc32-9ef0-4f88-bc72-0b1543781257.png",
     live: true,
   },
   {
