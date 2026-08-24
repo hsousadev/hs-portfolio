@@ -6,6 +6,7 @@ import { gsap, reducedMotion, unlockGsap } from "@/lib/motion";
 import { scrollToId } from "@/lib/scroll";
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/Container";
+import { FadeRule } from "@/components/ui/FadeRule";
 import { LanguageToggle } from "./LanguageToggle";
 
 const links = [
@@ -53,20 +54,20 @@ export function Header() {
     <header
       ref={root}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-[background,border] duration-300",
-        scrolled
-          ? "border-border/60 bg-bg/80 backdrop-blur-md"
-          : "border-transparent bg-transparent",
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        scrolled ? "bg-bg" : "bg-transparent",
       )}
     >
-      <Container className="flex h-16 items-center justify-between">
+      <div className="relative">
+        {scrolled && <FadeRule position="bottom" />}
+        <Container className="flex h-16 items-center justify-between">
         <button
           type="button"
           onClick={() => go("hero")}
           className="flex items-center gap-2"
           aria-label="Henrique Sousa"
         >
-          <Logo className="text-text transition-colors hover:text-accent" />
+          <Logo className="text-text transition-opacity hover:opacity-70" />
         </button>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -75,7 +76,7 @@ export function Header() {
               key={link.id}
               type="button"
               onClick={() => go(link.id)}
-              className="text-sm text-muted transition-colors hover:text-accent"
+              className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase transition-colors hover:text-text"
             >
               {t.nav[link.label]}
             </button>
@@ -91,21 +92,23 @@ export function Header() {
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
-      </Container>
+        </Container>
+      </div>
 
       <div
         className={cn(
-          "border-t border-border bg-bg md:hidden",
+          "relative bg-bg md:hidden",
           open ? "block" : "hidden",
         )}
       >
+        <FadeRule position="top" />
         <Container className="flex flex-col py-2">
           {links.map((link) => (
             <button
               key={link.id}
               type="button"
               onClick={() => go(link.id)}
-              className="border-b border-border/60 py-3.5 text-left text-lg text-text last:border-0"
+              className="py-3.5 text-left font-mono text-sm tracking-[0.12em] text-text uppercase"
             >
               {t.nav[link.label]}
             </button>

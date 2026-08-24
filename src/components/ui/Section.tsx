@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Container } from "./Container";
+import { FadeRule } from "./FadeRule";
 import { Reveal } from "./Reveal";
 
 export function Section({
@@ -21,27 +22,27 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={cn("scroll-mt-24 py-16 md:py-32", className)}>
+    <section id={id} className={cn("scroll-mt-24 py-16 md:py-28", className)}>
       <Container>
         {(kicker || title || actions) && (
-          <Reveal className="mb-8 md:mb-16">
-            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-6">
+          <Reveal className="relative mb-8 pb-6 md:mb-14 md:pb-8">
+            <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-8">
               <div>
                 {kicker && (
-                  <p className="mb-3 flex items-center gap-3 font-sans text-xs font-medium tracking-[0.16em] uppercase">
-                    {index && <span className="text-secondary">{index}</span>}
-                    <span className="h-px w-8 bg-linear-to-r from-accent to-secondary" />
-                    <span className="text-accent">{kicker}</span>
+                  <p className="mb-3 flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] text-muted uppercase">
+                    {index && <span className="text-text">{index}</span>}
+                    <span>{kicker}</span>
                   </p>
                 )}
                 {title && (
-                  <h2 className="font-display text-[2rem] leading-tight font-semibold tracking-tight text-text md:text-5xl">
+                  <h2 className="font-display text-[2rem] leading-[1.05] font-semibold tracking-tight text-text md:text-5xl">
                     {title}
                   </h2>
                 )}
               </div>
               {actions}
             </div>
+            <FadeRule position="bottom" />
           </Reveal>
         )}
         {children}

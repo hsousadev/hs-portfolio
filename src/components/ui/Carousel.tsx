@@ -134,8 +134,8 @@ export function Carousel({
                 className={cn(
                   "h-1.5 rounded-full transition-all",
                   index === active
-                    ? "w-6 bg-accent"
-                    : "w-1.5 bg-border hover:bg-secondary",
+                    ? "w-6 bg-text"
+                    : "w-1.5 bg-border hover:bg-muted",
                 )}
               />
             ))}
@@ -145,7 +145,7 @@ export function Carousel({
               type="button"
               aria-label="Anterior"
               onClick={() => go(active - 1)}
-              className="flex size-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent md:size-10"
+              className="flex size-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-text hover:text-text md:size-10"
             >
               <ChevronLeft size={18} />
             </button>
@@ -153,7 +153,7 @@ export function Carousel({
               type="button"
               aria-label="Próximo"
               onClick={() => go(active + 1)}
-              className="flex size-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-secondary hover:text-secondary md:size-10"
+              className="flex size-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-text hover:text-text md:size-10"
             >
               <ChevronRight size={18} />
             </button>

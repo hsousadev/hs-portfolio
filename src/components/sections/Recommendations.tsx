@@ -132,9 +132,9 @@ export function Recommendations() {
             <article
               key={item.id}
               data-rec-card
-              className="flex min-h-[17rem] flex-col gap-6 rounded-2xl border border-border bg-surface p-5 md:min-h-[18.5rem] md:p-8"
+              className="flex min-h-[17rem] flex-col gap-6 py-6 md:min-h-[18.5rem] md:py-8"
             >
-              <p className="text-[0.95rem] leading-relaxed text-text md:text-base">
+              <p className="font-display text-[0.95rem] leading-relaxed text-text md:text-lg">
                 “{item.quote[locale]}”
               </p>
               <div className="mt-auto flex items-center gap-3">
@@ -163,8 +163,8 @@ export function Recommendations() {
                 className={cn(
                   "h-1.5 rounded-full transition-all",
                   index === start
-                    ? "w-6 bg-accent"
-                    : "w-1.5 bg-border hover:bg-secondary",
+                    ? "w-6 bg-text"
+                    : "w-1.5 bg-border hover:bg-muted",
                 )}
               />
             ))}
@@ -174,7 +174,7 @@ export function Recommendations() {
               type="button"
               aria-label="Anterior"
               onClick={() => animateTo(startRef.current - pageSizeRef.current)}
-              className="flex size-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent md:size-10"
+              className="flex size-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-text hover:text-text md:size-10"
             >
               <ChevronLeft size={18} />
             </button>
@@ -182,7 +182,7 @@ export function Recommendations() {
               type="button"
               aria-label="Próximo"
               onClick={() => animateTo(startRef.current + pageSizeRef.current)}
-              className="flex size-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-secondary hover:text-secondary md:size-10"
+              className="flex size-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-text hover:text-text md:size-10"
             >
               <ChevronRight size={18} />
             </button>

@@ -1,75 +1,62 @@
 import { ArrowUpRight } from "@/components/ui/icons";
 import { useLocale } from "@/i18n/locale";
 import type { Project } from "@/content/projects";
-import { cn } from "@/lib/cn";
 import { Tag } from "./Tag";
 
 export function ProjectCard({
   project,
-  tint = "accent",
+  index,
 }: {
   project: Project;
-  tint?: "accent" | "secondary";
+  index: number;
 }) {
   const { locale, t } = useLocale();
-  const green = tint === "secondary";
+  const n = String(index + 1).padStart(2, "0");
 
   return (
     <a
       href={project.href}
       target="_blank"
       rel="noreferrer"
-      className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface transition-[transform,border-color,box-shadow] duration-500 ease-out-expo [@media(hover:hover)]:hover:-translate-y-1.5",
-        green
-          ? "hover:border-secondary/50 [@media(hover:hover)]:hover:shadow-[0_20px_48px_-24px_rgba(123,201,166,0.55)]"
-          : "hover:border-accent/50 [@media(hover:hover)]:hover:shadow-[0_20px_48px_-24px_rgba(160,144,212,0.55)]",
-      )}
+      className="group grid items-center gap-5 md:grid-cols-[minmax(0,1fr)_minmax(12rem,17rem)] md:gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(14rem,20rem)]"
     >
-      <div className="relative aspect-16/10 shrink-0 overflow-hidden bg-elevated">
+      <div className="relative aspect-16/10 overflow-hidden bg-elevated md:order-2">
         <img
           src={project.image}
           alt={project.title}
           className="project-shot h-full w-full object-cover"
           loading="lazy"
         />
-        <div
-          className={cn(
-            "project-shot-wash pointer-events-none absolute inset-0",
-            green ? "bg-secondary" : "bg-accent",
-          )}
-          aria-hidden
-        />
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-bg/55 via-transparent to-transparent opacity-70 transition-opacity duration-500 [@media(hover:hover)]:group-hover:opacity-30" />
       </div>
 
-      <div className="flex flex-1 flex-col gap-2.5 p-4">
-        <div className="flex items-center gap-2 text-[11px] tracking-[0.14em] text-muted uppercase">
-          <span>{project.category}</span>
+      <div className="min-w-0 md:order-1">
+        <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">
+          {n}
+          <span className="mx-2 text-border" aria-hidden>
+            /
+          </span>
+          {project.category}
           {project.live && (
             <>
-              <span aria-hidden>·</span>
+              <span className="mx-2 text-border" aria-hidden>
+                /
+              </span>
               <span className="text-secondary">{t.common.live}</span>
             </>
           )}
-        </div>
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display line-clamp-1 text-base leading-snug font-semibold tracking-tight text-text md:text-lg">
-            {project.title}
-          </h3>
+        </p>
+        <h3 className="font-display mt-2 flex items-start gap-3 text-2xl leading-tight font-semibold tracking-tight text-text md:text-3xl">
+          <span>{project.title}</span>
           <ArrowUpRight
-            size={16}
-            className={cn(
-              "mt-0.5 shrink-0 text-muted transition-colors",
-              green ? "group-hover:text-secondary" : "group-hover:text-accent",
-            )}
+            size={18}
+            className="mt-1.5 shrink-0 text-muted transition-colors group-hover:text-text"
           />
-        </div>
-        <p className="line-clamp-2 min-h-10 text-xs leading-relaxed text-muted md:min-h-11 md:text-sm">
+        </h3>
+        <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted md:text-base">
           {project.description[locale]}
         </p>
-        <div className="mt-auto flex min-h-6 flex-wrap gap-1.5">
-          {project.tags.slice(0, 3).map((tag) => (
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {project.tags.slice(0, 4).map((tag) => (
             <Tag key={tag}>{tag}</Tag>
           ))}
         </div>

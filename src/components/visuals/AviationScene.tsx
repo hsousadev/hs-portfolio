@@ -2,14 +2,12 @@ import { useEffect, useRef } from "react";
 import { gsap, unlockGsap } from "@/lib/motion";
 import { placeOnPath, pointOnPath } from "@/lib/svg-path";
 import { useLocale } from "@/i18n/locale";
-import { useSpotlightId } from "@/lib/uid";
 
 const PATH_D = "M48 168 C 110 40, 250 200, 352 52";
 
 export function AviationScene() {
   const { t } = useLocale();
   const root = useRef<HTMLDivElement>(null);
-  const uid = useSpotlightId("flight");
 
   useEffect(() => {
     const el = root.current;
@@ -104,20 +102,6 @@ export function AviationScene() {
   return (
     <div ref={root} className="relative h-full min-h-56">
       <svg viewBox="0 0 400 220" className="h-full w-full" aria-hidden>
-        <defs>
-          <linearGradient id={`${uid}-grad`} x1="48" y1="168" x2="352" y2="52">
-            <stop offset="0%" stopColor="#A090D4" />
-            <stop offset="100%" stopColor="#7BC9A6" />
-          </linearGradient>
-          <filter id={`${uid}-glow`} x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
         <circle data-ring className="radar-ring radar-ring-a" cx="200" cy="110" r="36" />
         <circle data-ring className="radar-ring radar-ring-b" cx="200" cy="110" r="64" />
         <circle data-ring className="radar-ring radar-ring-c" cx="200" cy="110" r="94" />
@@ -130,38 +114,36 @@ export function AviationScene() {
           data-flight-path
           className="flight-route"
           d={PATH_D}
-          stroke={`url(#${uid}-grad)`}
+          stroke="#9A8BC4"
         />
 
         <g className="airport-ping" transform="translate(48 168)">
           <circle data-ping className="ping-wave" r="14" />
-          <circle r="4.5" fill="#A090D4" />
+          <circle r="4.5" fill="#9A8BC4" />
         </g>
         <g className="airport-ping" transform="translate(230 128)">
           <circle data-ping className="ping-wave ping-wave-green" r="10" />
-          <circle r="3" fill="#7BC9A6" />
+          <circle r="3" fill="#6EAF95" />
         </g>
         <g className="airport-ping" transform="translate(352 52)">
           <circle data-ping className="ping-wave ping-wave-green" r="14" />
-          <circle r="4.5" fill="#7BC9A6" />
+          <circle r="4.5" fill="#6EAF95" />
         </g>
 
         <circle
           data-orb
-          r="7"
-          fill="#7BC9A6"
-          opacity="0.9"
-          filter={`url(#${uid}-glow)`}
+          r="5"
+          fill="#6EAF95"
         />
 
         <g data-plane-ghost opacity="0.45">
-          <circle r="3.5" fill="#7BC9A6" />
+          <circle r="3.5" fill="#6EAF95" />
         </g>
-        <g data-plane filter={`url(#${uid}-glow)`}>
+        <g data-plane>
           <path
             d="M0 -14 L11 6 L2 3 L0 15 L-2 3 L-11 6 Z"
-            fill="#F3F1EB"
-            stroke="#A090D4"
+            fill="#EEEAE2"
+            stroke="#9A8BC4"
             strokeWidth="1"
           />
         </g>

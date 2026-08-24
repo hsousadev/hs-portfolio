@@ -5,6 +5,7 @@ import { AviationScene } from "@/components/visuals/AviationScene";
 import { EducationScene } from "@/components/visuals/EducationScene";
 import { FinanceScene } from "@/components/visuals/FinanceScene";
 import { HudCell, SpotlightCard } from "@/components/ui/SpotlightCard";
+import { FadeDivider, FadeFrame } from "@/components/ui/FadeRule";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 
@@ -28,13 +29,16 @@ export function Highlights() {
         </p>
       </Reveal>
 
-      <div className="flex flex-col gap-8 md:gap-12">
+      <div className="relative">
+        <FadeFrame />
         <Reveal>
           <InformCard />
         </Reveal>
+        <FadeDivider />
         <Reveal delay={0.08}>
           <IntrabankCard />
         </Reveal>
+        <FadeDivider />
         <Reveal delay={0.12}>
           <EnsinioCard />
         </Reveal>

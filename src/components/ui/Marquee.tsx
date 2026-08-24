@@ -29,16 +29,14 @@ const items = [
 
 function Row() {
   return (
-    <ul className="m-0 flex list-none items-center gap-10 p-0 pr-10">
-      {items.map((item, index) => (
+    <ul className="m-0 flex list-none items-center gap-8 p-0 pr-8">
+      {items.map((item) => (
         <li
           key={item}
-          className="flex shrink-0 items-center gap-10 font-display text-sm tracking-[0.18em] uppercase"
+          className="flex shrink-0 items-center gap-8 font-mono text-[11px] tracking-[0.18em] text-muted uppercase"
         >
-          <span className={index % 2 === 0 ? "text-accent" : "text-secondary"}>
-            {item}
-          </span>
-          <span className="size-1.5 rounded-full bg-muted/50" aria-hidden />
+          <span>{item}</span>
+          <span className="size-1 rounded-full bg-muted/60" aria-hidden />
         </li>
       ))}
     </ul>
@@ -47,7 +45,7 @@ function Row() {
 
 export function Marquee() {
   return (
-    <div className="marquee-viewport relative mt-auto overflow-hidden border-y border-border/70 py-3 md:py-4">
+    <div className="marquee-viewport relative mt-auto overflow-hidden py-3 md:py-3.5">
       <div className="marquee-track">
         <Row />
         <Row />

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Check, Copy } from "@/components/ui/icons";
 import { site } from "@/content/site";
 import { useLocale } from "@/i18n/locale";
 import { Button } from "@/components/ui/Button";
@@ -22,7 +21,7 @@ export function Contact() {
         <p className="max-w-xl text-base text-muted md:text-lg">{t.contact.text}</p>
         <a
           href={`mailto:${site.email}`}
-          className="mt-6 block font-display text-xl break-all text-accent transition-colors hover:text-secondary md:mt-8 md:text-4xl"
+          className="mt-6 block font-display text-xl break-all text-text decoration-accent underline-offset-4 transition-colors hover:underline md:mt-8 md:text-4xl"
         >
           {site.email}
         </a>
@@ -30,16 +29,9 @@ export function Contact() {
           <button
             type="button"
             onClick={copyEmail}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm text-muted transition-colors hover:border-secondary hover:text-secondary"
+            className="inline-flex min-h-11 items-center justify-center rounded-full border border-border px-4 py-2.5 font-mono text-[11px] tracking-[0.14em] text-muted uppercase transition-colors hover:border-text hover:text-text"
           >
-            {copied ? (
-              <Check size={16} className="text-secondary" />
-            ) : (
-              <Copy size={16} />
-            )}
-            <span className={copied ? "text-secondary" : undefined}>
-              {copied ? t.contact.copied : t.contact.email}
-            </span>
+            {copied ? t.contact.copied : t.contact.email}
           </button>
           <Button href={site.whatsapp} variant="ghost" target="_blank" rel="noreferrer">
             {t.contact.whatsapp}

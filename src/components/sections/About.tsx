@@ -20,7 +20,7 @@ export function About() {
             <p>{t.about.p1}</p>
             <p>{t.about.p2}</p>
             <p>{t.about.p3}</p>
-            <p>{t.about.drive}</p>
+            <p className="text-text">{t.about.drive}</p>
           </div>
         </Reveal>
       </div>

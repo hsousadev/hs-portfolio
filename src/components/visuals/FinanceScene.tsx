@@ -2,14 +2,12 @@ import { useEffect, useRef } from "react";
 import { gsap, unlockGsap } from "@/lib/motion";
 import { placeOnPath } from "@/lib/svg-path";
 import { useLocale } from "@/i18n/locale";
-import { useSpotlightId } from "@/lib/uid";
 
 const FLOW_D = "M56 92 C 120 28, 160 156, 200 92 C 240 28, 280 156, 344 92";
 
 export function FinanceScene() {
   const { t } = useLocale();
   const root = useRef<HTMLDivElement>(null);
-  const uid = useSpotlightId("fidc");
 
   useEffect(() => {
     const el = root.current;
@@ -104,50 +102,35 @@ export function FinanceScene() {
   return (
     <div ref={root} className="relative h-full min-h-56">
       <svg viewBox="0 0 400 220" className="h-full w-full" aria-hidden>
-        <defs>
-          <linearGradient id={`${uid}-grad`} x1="56" y1="92" x2="344" y2="92">
-            <stop offset="0%" stopColor="#A090D4" />
-            <stop offset="50%" stopColor="#F3F1EB" />
-            <stop offset="100%" stopColor="#7BC9A6" />
-          </linearGradient>
-          <filter id={`${uid}-glow`} x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2.8" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
         <path
           data-flow-path
           className="capital-flow"
           d={FLOW_D}
-          stroke={`url(#${uid}-grad)`}
+          stroke="#9A8BC4"
         />
 
         {[
-          { x: 56, fill: "#A090D4" },
-          { x: 200, fill: "#F3F1EB" },
-          { x: 344, fill: "#7BC9A6" },
+          { x: 56, fill: "#9A8BC4" },
+          { x: 200, fill: "#EEEAE2" },
+          { x: 344, fill: "#6EAF95" },
         ].map((node) => (
           <g key={node.x} transform={`translate(${node.x} 92)`}>
             <circle data-gate-ring className="ping-wave" r="16" />
-            <circle r="7" fill={node.fill} filter={`url(#${uid}-glow)`} />
+            <circle r="6" fill={node.fill} />
           </g>
         ))}
 
         <g data-shield data-gsap>
           <path
             d="M200 74 L214 80 V94 C214 102 200 110 200 110 C200 110 186 102 186 94 V80 Z"
-            fill="rgb(10 10 11 / 0.85)"
-            stroke="#A090D4"
-            strokeWidth="1.4"
+            fill="rgb(16 16 14 / 0.9)"
+            stroke="#9A8BC4"
+            strokeWidth="1.2"
           />
           <path
             d="M196 93 L199 96 L206 87"
             fill="none"
-            stroke="#7BC9A6"
+            stroke="#6EAF95"
             strokeWidth="1.6"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -155,15 +138,15 @@ export function FinanceScene() {
         </g>
 
         {[0, 1, 2].map((index) => (
-          <g key={index} data-packet filter={`url(#${uid}-glow)`}>
+          <g key={index} data-packet>
             <rect
-              x="-5"
-              y="-5"
-              width="10"
-              height="10"
+              x="-4"
+              y="-4"
+              width="8"
+              height="8"
               rx="2"
-              fill="#F3F1EB"
-              stroke="#A090D4"
+              fill="#EEEAE2"
+              stroke="#9A8BC4"
               strokeWidth="1"
             />
           </g>
@@ -179,7 +162,6 @@ export function FinanceScene() {
             y={168 - height}
             width="14"
             height={height}
-            rx="2"
           />
         ))}
       </svg>

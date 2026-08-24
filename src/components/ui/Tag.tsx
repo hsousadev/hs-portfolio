@@ -10,7 +10,7 @@ export function Tag({
   return (
     <span
       className={cn(
-        "rounded-full border border-border px-2 py-0.5 text-[11px] text-muted",
+        "rounded-md border border-border px-2 py-0.5 font-mono text-[10px] tracking-[0.08em] text-muted uppercase",
         className,
       )}
     >
