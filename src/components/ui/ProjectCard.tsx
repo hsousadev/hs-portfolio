@@ -44,6 +44,14 @@ export function ProjectCard({
               <span className="text-secondary">{t.common.live}</span>
             </>
           )}
+          {project.pwa && (
+            <>
+              <span className="mx-2 text-border" aria-hidden>
+                /
+              </span>
+              <span className="text-secondary">{t.common.pwa}</span>
+            </>
+          )}
         </p>
         <h3 className="font-display mt-2 flex items-start gap-3 text-2xl leading-tight font-semibold tracking-tight text-text md:text-3xl">
           <span>{project.title}</span>

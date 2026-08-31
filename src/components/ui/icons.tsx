@@ -30,6 +30,15 @@ export function ArrowUpRight(props: IconProps) {
   );
 }
 
+export function ArrowUp(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M12 19V5" />
+      <path d="m6 11 6-6 6 6" />
+    </Icon>
+  );
+}
+
 export function MessageCircle(props: IconProps) {
   return (
     <Icon {...props}>

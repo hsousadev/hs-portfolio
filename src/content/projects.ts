@@ -1,6 +1,7 @@
 import nanoticiaBanner from "@/assets/nanoticia-banner.png";
 import aloBanner from "@/assets/alo-banner.png";
 import rickAndMortyBanner from "@/assets/rick-and-morty-banner.png";
+import maratonarMarvelCover from "@/assets/maratonar-marvel-art-design.png";
 import type { Locale } from "@/i18n/messages";
 
 export type ProjectCategory = "web" | "design";
@@ -15,6 +16,7 @@ export type Project = {
   image: string;
   featured?: boolean;
   live?: boolean;
+  pwa?: boolean;
 };
 
 export const projects: Project[] = [
@@ -31,6 +33,21 @@ export const projects: Project[] = [
     image: nanoticiaBanner,
     featured: true,
     live: true,
+  },
+  {
+    id: "maratonar-marvel",
+    title: "Maratonar Marvel",
+    description: {
+      pt: "Monte a maratona até o próximo filme da Marvel nos cinemas. Escolha o recorte, marque o que já viu e acompanhe a estreia.",
+      en: "Build a marathon to the next Marvel movie in theaters. Pick a cut, mark what you've watched, and follow the premiere.",
+    },
+    tags: ["React", "TypeScript", "Vite"],
+    category: "web",
+    href: "https://maratonar-marvel.vercel.app/",
+    image: maratonarMarvelCover,
+    featured: true,
+    live: true,
+    pwa: true,
   },
   {
     id: "radio",

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Syne", sans-serif;
+  --font-display: Syne, sans-serif;
   --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
@@ -91,6 +91,111 @@ body {
   border-top: 0;
 }
 
+.cue-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 3.15rem;
+}
+
+.cue-mark > span {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: 1px solid rgb(238 234 226 / 0.35);
+  transition: border-color 0.2s;
+}
+
+.group:hover .cue-mark > span {
+  border-color: var(--color-accent);
+}
+
+.cue-mark > span:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.cue-mark > span:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.cue-mark > span:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+.cue-mark > span:nth-child(4) {
+  right: 0;
+  bottom: 0;
+  border-left: 0;
+  border-top: 0;
+}
+
+.cue-stem {
+  stroke: rgb(238 234 226 / 0.28);
+}
+
+.cue-pulse {
+  stroke: var(--color-accent);
+  stroke-width: 1.75;
+  stroke-dasharray: 6 32;
+  stroke-dashoffset: 6;
+  animation: cue-fall 1.85s linear infinite;
+}
+
+.cue-head {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cue-nudge 1.85s var(--ease-out-expo) infinite;
+}
+
+.cue-glyph {
+  overflow: visible;
+}
+
+.cue-rise {
+  animation: cue-lift 2s var(--ease-out-expo) infinite;
+}
+
+.group:hover .cue-pulse,
+.group:hover .cue-head {
+  animation-play-state: paused;
+}
+
+@keyframes cue-fall {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+@keyframes cue-nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes cue-lift {
+  0%,
+  100% {
+    transform: translateY(2px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
 a,
 button,
 [role="button"],
@@ -142,16 +247,12 @@ a[aria-disabled="true"] {
 }
 
 .project-shot {
-  filter: grayscale(1) contrast(1.12);
   transform: scale(1);
-  transition:
-    filter 0.7s var(--ease-out-expo),
-    transform 0.7s var(--ease-out-expo);
+  transition: transform 0.7s var(--ease-out-expo);
 }
 
 @media (hover: hover) {
   .group:hover .project-shot {
-    filter: none;
     transform: scale(1.03);
   }
 }
@@ -303,5 +404,11 @@ a[aria-disabled="true"] {
 
   .marquee-track {
     animation-duration: 80s;
+  }
+
+  .cue-pulse,
+  .cue-head,
+  .cue-rise {
+    animation: none;
   }
 }

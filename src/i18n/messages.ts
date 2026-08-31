@@ -13,6 +13,7 @@ export const messages = {
       folio: "Portfólio / 26",
       cv: "Currículo",
       contact: "Contato",
+      scroll: "Ver mais",
     },
     catalog: {
       kicker: "Projetos",
@@ -94,9 +95,11 @@ export const messages = {
     },
     footer: {
       rights: "Todos os direitos reservados.",
+      top: "Topo",
     },
     common: {
       live: "Online",
+      pwa: "PWA (App)",
       open: "Abrir",
       watch: "Assistir",
       menu: "Menu",
@@ -117,6 +120,7 @@ export const messages = {
       folio: "Portfolio / 26",
       cv: "Resume",
       contact: "Contact",
+      scroll: "See more",
     },
     catalog: {
       kicker: "Projects",
@@ -198,9 +202,11 @@ export const messages = {
     },
     footer: {
       rights: "All rights reserved.",
+      top: "Top",
     },
     common: {
       live: "Live",
+      pwa: "PWA (App)",
       open: "Open",
       watch: "Watch",
       menu: "Menu",

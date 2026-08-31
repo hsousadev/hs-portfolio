@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { site } from "@/content/site";
 import { useLocale } from "@/i18n/locale";
 import { gsap, reducedMotion, unlockGsap } from "@/lib/motion";
+import { scrollToId } from "@/lib/scroll";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Magnetic } from "@/components/ui/Magnetic";
@@ -121,6 +122,47 @@ export function Hero() {
           </div>
         </div>
       </Container>
+
+      <div
+        data-hero
+        className="absolute inset-x-0 bottom-16 z-10 flex justify-center"
+      >
+        <Magnetic strength={0.16}>
+          <button
+            type="button"
+            onClick={() => scrollToId("about")}
+            aria-label={t.hero.scroll}
+            className="group flex flex-col items-center gap-2.5"
+          >
+            <span className="cue-mark">
+              <span />
+              <span />
+              <span />
+              <span />
+              <svg
+                viewBox="0 0 24 32"
+                width="18"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="cue-glyph text-muted transition-colors duration-200 group-hover:text-text"
+                aria-hidden
+              >
+                <line className="cue-stem" x1="12" y1="3" x2="12" y2="21" />
+                <line className="cue-pulse" x1="12" y1="3" x2="12" y2="21" />
+                <path className="cue-head" d="m7 18 5 6 5-6" />
+              </svg>
+            </span>
+            <span className="font-mono text-[10px] tracking-[0.22em] text-muted uppercase transition-colors duration-200 group-hover:text-text">
+              {t.hero.scroll}
+            </span>
+          </button>
+        </Magnetic>
+      </div>
+
       <Marquee />
     </section>
   );
